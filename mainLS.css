@@ -8,6 +8,11 @@ body {
     font-family: 'arial';
 }
 
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
 h1 {
     text-align: center;
     padding: 20px;
@@ -27,7 +32,22 @@ h2 {
 }
 
 #frutas {
-    border: 2px solid rgb(4, 4, 145);      
+    border: 2px solid rgb(4, 4, 145);
+    box-shadow: 0 0 5px black;
+}
+
+#frutas span,
+#cesta ol li p:first-child {
+    color: Red;
+}
+
+.precioCesta,
+#frutas p:last-child span {
+    color: blue;
+}
+
+p {
+    font-size: 0.9em;
 }
 
 #lista {
@@ -37,53 +57,79 @@ h2 {
     grid-template-columns: 1fr 1fr;
     padding: 10px;
     column-gap: 20px;
-    row-gap: 15px;    
+    row-gap: 15px;
 }
 
-#lista li {    
+#lista li {
     font-size: 1.2em;
     border: 2px solid rgb(0, 0, 0);
-    background: linear-gradient(rgb(255, 255, 255),rgb(216, 215, 215));
-    padding: 10px;    
+    background: linear-gradient(rgb(255, 255, 255), rgb(216, 215, 215));
+    padding: 10px;
     text-align: center;
-    color:rgb(81, 82, 46);
+    color: rgb(81, 82, 46);
 }
-
 
 #cesta {
     display: grid;
-    grid-template-rows: 0.15fr 0.7fr 0.15fr;
-    
+    grid-template-rows: 0.08fr 0.82fr 0.10fr;
+
     width: 200px;
-    border: 2px solid rgb(4, 4, 145);        
+    border: 2px solid rgb(4, 4, 145);
+    box-shadow: 0 0 5px black;
 }
 
 #listaUser {
-    padding: 0 30px;        
-    background-image: linear-gradient(rgb(255, 255, 255),rgb(175, 175, 175), rgb(255, 255, 255));
+    padding: 0 30px;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(175, 175, 175), rgb(255, 255, 255));
 }
 
 #listaUser li {
     line-height: 25px;
-    color:rgb(0, 34, 66);    
+    color: rgb(0, 34, 66);
     font-size: 1.1em;
+    border-bottom: 1px dotted black;
 }
 
-#buttonContainer {    
+.divContainer {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+    margin: 5px;
+    height: 50px;
+
+}
+
+#buttonContainer {
     align-self: center;
-    justify-self: center;    
+    justify-self: center;
+    background-color: red;
 }
 
 #vaciarCesta {
     font-size: 1.1em;
+    cursor: pointer;
+    padding: 5px;
     width: 130px;
-    color:rgb(202, 2, 2);
+    color: rgb(202, 2, 2);
     box-shadow: 0 0 3px 1px black;
 }
 
+#vaciarCesta:hover {
+    color: blue;
+}
+
 #lista button {
-    margin:  5px;
-    box-shadow: 0 0 3px 1px;
-    width: 65px; 
-    height: 22px;       
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5em;
+}
+
+#lista button:hover {
+    background-color: white;
+    color: black;
 }
