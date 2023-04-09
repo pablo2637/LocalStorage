@@ -140,14 +140,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const objFruta = arrayFrutas.find(fruta => fruta.id == id);
         const indFrutaCesta = arrayFrutasCesta.findIndex(fruta => fruta.id == id);
 
-        objFruta.cesta -= 1;
-        arrayFrutasCesta[indFrutaCesta].cesta = objFruta.cesta;
+        if (indFrutaCesta >= 0) {
 
-        if (objFruta.cesta == 0)
-            arrayFrutasCesta.splice(indFrutaCesta, 1);
+            objFruta.cesta -= 1;
+            arrayFrutasCesta[indFrutaCesta].cesta = objFruta.cesta;
 
-        addLocal();
-        pintarOlCesta();
+            if (objFruta.cesta == 0)
+                arrayFrutasCesta.splice(indFrutaCesta, 1);
+
+            addLocal();
+            pintarOlCesta();
+        }
 
     };
 
@@ -163,17 +166,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             pStock.textContent = cantidad - cesta;
             if (cesta == 0)
-                btnEliminar.disabled = true;
+                    btnEliminar.disabled = true;
 
-            else
-                btnEliminar.disabled = false;
+                else
+                    btnEliminar.disabled = false;
 
 
-            if ((cantidad - cesta) == 0)
-                btnAgregar.disabled = true;
+                if ((cantidad - cesta) == 0)
+                    btnAgregar.disabled = true;
 
-            else
-                btnAgregar.disabled = false;
+                else
+                    btnAgregar.disabled = false;
 
         });
     };
@@ -188,14 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const divBotones = document.createElement("DIV");
         divBotones.classList.add("divContainer");
 
-        const btnAgregar = document.createElement("BUTTON");    //En la clase del boton se almacena la acción
-        // btnAgregar.textContent = "Agregar";                     //y la fruta. (AGREGAR)
+        const btnAgregar = document.createElement("BUTTON");    //En la clase del boton se almacena la acción               
+        btnAgregar.classList.add("agregar", id)                 //y la fruta. (AGREGAR)
         btnAgregar.innerHTML = `<i class="fa-solid fa-square-plus"></i>`;
-        btnAgregar.classList.add("agregar", id)
 
-        const btnEliminar = document.createElement("BUTTON");   //En la clase del boton se almacena la acción
-        // btnEliminar.textContent = "Eliminar";                   //y la fruta. (ELIMINAR)
-        btnEliminar.classList.add("eliminar", id)
+        const btnEliminar = document.createElement("BUTTON");   //En la clase del boton se almacena la acción                                                
+        btnEliminar.classList.add("eliminar", id)               //y la fruta. (ELIMINAR)
         btnEliminar.innerHTML = `<i class="fa-solid fa-square-minus"></i>`;
 
         const pStock = document.createElement("P");
